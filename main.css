@@ -1,0 +1,26 @@
+.mapImg {
+	height: 100%;
+	width:100%;
+
+}
+
+.moneybag {
+	height: 20px;
+	width: 20px;
+	position: absolute;
+}
+
+div {
+	padding: 10px;
+	background-color: white;
+	position: absolute;
+}
+
+.notebox {
+	width: 200px;
+	height: 50px;
+}
+
+.note {
+	width: 200px;
+}
