@@ -1,9 +1,21 @@
 
 $(document).on('ready', function() {
-  
+
+
+	// function initialize() {
+	//     var mapOptions = {
+	//       center: { lat: 150.644, lng: -34.397},
+	//       zoom: 8
+	//     };
+	//     var map = new google.maps.Map(document.getElementById('map-canvas'),
+	//         mapOptions);
+	// }
+	//     google.maps.event.addDomListener(window, 'load', initialize);
+
+
   	var count = 0;
 
-	$('.mapImg').on('click', function(event){
+	$('#map-canvas').on('click', function(event){
 		var x = event.pageX;
 		var y = event.pageY;
 
@@ -12,7 +24,7 @@ $(document).on('ready', function() {
 		$('#'+count).css("top", y-10);
 		$('#'+count).css("left", x-10);
 		
-		$('body').append('<div><textarea class="notebox" id="note'+count+'">Enter Note Here</textarea></div>');
+		$('body').append('<div class="noteholder"><textarea class="notebox" id="note'+count+'">Enter Note Here</textarea></div>');
 		$('#note'+count).parent().css({'top': y-10, 'left': x+20});
 
 		count++;
@@ -22,7 +34,7 @@ $(document).on('ready', function() {
 	$(document).on('click','.moneybag', function(){
 		var tempID = $(this).attr('id');
 		$(this).remove();
-		$('#note'+tempID).remove();
+		$('#note'+tempID).parent().remove();
 	});
 
 	$(document).on('keypress','.notebox', function(event) {
