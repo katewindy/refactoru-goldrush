@@ -1,20 +1,9 @@
 
 $(document).on('ready', function() {
 
-
-	// function initialize() {
-	//     var mapOptions = {
-	//       center: { lat: 150.644, lng: -34.397},
-	//       zoom: 8
-	//     };
-	//     var map = new google.maps.Map(document.getElementById('map-canvas'),
-	//         mapOptions);
-	// }
-	//     google.maps.event.addDomListener(window, 'load', initialize);
-
-
   	var count = 0;
 
+  	//Adds a new moneybag icon to the map on click and lets you enter a note
 	$('#map-canvas').on('click', function(event){
 		var x = event.pageX;
 		var y = event.pageY;
@@ -31,12 +20,14 @@ $(document).on('ready', function() {
 		
 	});
 
+	// removes a moneybag icon and the associated note when an existing icon is clicked
 	$(document).on('click','.moneybag', function(){
 		var tempID = $(this).attr('id');
 		$(this).remove();
 		$('#note'+tempID).parent().remove();
 	});
 
+	// note is saved when enter is pressed while within the textbox
 	$(document).on('keypress','.notebox', function(event) {
 		if (event.which === 13) {
 			var tempText = $(this).val();
@@ -46,12 +37,14 @@ $(document).on('ready', function() {
 			$(noteText).parent().hide();
 		}
 	});
-
+	
+	// Shows the note when the associated moneybag is moused over
 	$(document).on('mouseover','.moneybag', function(){
 		var tempID = $(this).attr('id');
 		$('#note'+tempID).parent().show();
 	});
 
+	// hides the note when the user stops mousing over the associated moneybag
 	$(document).on('mouseleave','.moneybag', function() {
 		var tempID = $(this).attr('id');
 
